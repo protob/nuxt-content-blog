@@ -67,7 +67,14 @@ export default {
    ** Content module configuration
    ** See https://content.nuxtjs.org/configuration
    */
-  content: {},
+  content: {
+    nestedProperties: ['author.name'],
+    markdown: {
+      prism: {
+        theme: 'prism-themes/themes/prism-xonokai.css',
+      },
+    },
+  },
   /*
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/

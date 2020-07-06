@@ -39,7 +39,9 @@ export default {
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
    */
-  components: true,
+  // components: true,
+  components: [{ path: '~/components', extensions: ['vue'] }],
+
   /*
    ** Nuxt.js dev-modules
    */

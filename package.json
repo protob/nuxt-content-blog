@@ -1,39 +1,42 @@
 {
-  "name": "nuxt-content-blog",
+  "name": "nuxt-conent-blog",
   "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "export": "nuxt export",
-    "serve": "nuxt serve",
+    "generate": "nuxt generate",
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "lint": "yarn lint:js",
-    "test": "jest",
-    "cc": "node ./generateComponent.js"
+    "lint": "yarn lint:js"
+  },
+  "lint-staged": {
+    "*.{js,vue}": "eslint"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "dependencies": {
-    "@nuxt/content": "^1.3.2",
-    "@nuxtjs/axios": "^5.11.0",
-    "nuxt": "^2.13.0",
-    "prism-themes": "^1.4.0"
+    "@nuxt/content": "^1.9.0",
+    "@nuxtjs/axios": "^5.12.2",
+    "core-js": "^3.6.5",
+    "nuxt": "^2.14.6",
+    "prism-themes": "^1.5.0"
   },
   "devDependencies": {
-    "@nuxtjs/eslint-config": "^3.0.0",
+    "@nuxtjs/eslint-config": "^3.1.0",
     "@nuxtjs/eslint-module": "^2.0.0",
-    "@nuxtjs/tailwindcss": "^2.0.0",
-    "@vue/test-utils": "^1.0.3",
+    "@nuxtjs/tailwindcss": "^3.1.0",
     "agen": "^1.0.8",
-    "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.1.0",
-    "babel-jest": "^26.0.1",
-    "eslint": "^7.2.0",
-    "eslint-config-prettier": "^6.11.0",
+    "eslint": "^7.10.0",
+    "eslint-config-prettier": "^6.12.0",
     "eslint-plugin-nuxt": "^1.0.0",
     "eslint-plugin-prettier": "^3.1.4",
-    "jest": "^26.0.1",
-    "prettier": "^2.0.5",
-    "vue-jest": "^3.0.4"
+    "husky": "^4.3.0",
+    "lint-staged": "^10.4.0",
+    "prettier": "^2.1.2"
   }
 }

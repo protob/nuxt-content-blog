@@ -1,6 +1,4 @@
 {
   "semi": false,
-  "singleQuote": true,
-  "endOfLine": "auto",
-  "htmlWhitespaceSensitivity": "ignore"
+  "singleQuote": true
 }

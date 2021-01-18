@@ -1,6 +1,8 @@
 <template>
   <div>
     <h1>Blog Posts</h1>
+    <PrtTag />
+    <PrtCat />
   </div>
 </template>
 <script>

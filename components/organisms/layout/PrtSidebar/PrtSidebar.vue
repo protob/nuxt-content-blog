@@ -1,6 +1,14 @@
 <script src="./PrtSidebar.js"></script>
 <template>
-  <div class="prt-sidebar">prt-sidebar</div>
+  <aside class="prt-sidebar py-4">
+    <div class="container mx-auto">
+      <div class="h-32 text-center text-white bg-indigo-900">
+        <h1 class="text-white text-xl">NOTES BLOG</h1>
+      </div>
+      <PrtSidebarWidget :label="'tags'" />
+
+      <PrtSidebarWidget :label="'cats'" />
+    </div>
+  </aside>
 </template>
 <style lang="scss"></style>
-

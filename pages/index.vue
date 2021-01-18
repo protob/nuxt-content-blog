@@ -1,6 +1,13 @@
 <template>
-  <div>
-    <h1>Blog Posts</h1>
+  <div class="container mx-auto flex flex-row flex-wrap">
+    <div class="col w-3/4">
+      <PrtItemsListing />
+    </div>
+    <div class="col w-1/4">
+      <PrtSidebar />
+    </div>
+
+    <div class="col w-full"><PrtPagination /></div>
   </div>
 </template>
 <script>

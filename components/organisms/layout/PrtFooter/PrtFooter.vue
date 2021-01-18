@@ -1,5 +1,9 @@
 <script src="./PrtFooter.js"></script>
+
 <template>
-  <div class="prt-footer">prt-footer</div>
+  <footer class="prt-footer py-4 bg-indigo-900">
+    <div class="container text-white mx-auto">prt-footer</div>
+  </footer>
 </template>
+
 <style lang="scss"></style>

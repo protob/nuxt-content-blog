@@ -1,5 +1,10 @@
 export default {
   name: 'PrtItem',
+  props: {
+    article: {
+      type: Object,
+    },
+  },
   methods: {
     lorem() {
       const nouns = [

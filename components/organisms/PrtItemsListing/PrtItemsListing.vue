@@ -6,7 +6,11 @@
       :cols="{ default: 3, 1000: 2, 700: 2, 400: 1 }"
       :gutter="{ default: '30px', 700: '15px' }"
     >
-      <PrtItem v-for="index in 10" :key="index" />
+      <PrtItem
+        v-for="(article, index) in articles"
+        :key="index"
+        :article="article"
+      />
     </masonry>
   </div>
 </template>

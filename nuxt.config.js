@@ -18,7 +18,7 @@ export default {
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
 
-  plugins: ['~/plugins/vue-masonry-css.js'],
+  plugins: ['~/plugins/vue-masonry-css.js', '~/plugins/data-formatters.js'],
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: [{ path: '~/components', extensions: ['vue'] }],
 
@@ -42,8 +42,23 @@ export default {
   axios: {},
 
   // Content module configuration (https://go.nuxtjs.dev/config-content)
-  content: {},
+  content: {
+    nestedProperties: ['categories.slug', 'params.slug'],
+    fullTextSearchFields: ['title', 'description'],
+    markdown: {
+      prism: {
+        theme: 'prism-themes/themes/prism-xonokai.css',
+      },
+    },
+  },
+  // generate: {
+  //   async routes() {
+  //     const { $content } = require('@nuxt/content')
+  //     const files = await $content({ deep: true }).only(['path']).fetch()
 
+  //     return files.map(file => file.path === '/index' ? '/' : file.path)
+  //   }
+  // },
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
 }

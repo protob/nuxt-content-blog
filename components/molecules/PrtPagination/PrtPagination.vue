@@ -1,6 +1,66 @@
 <script src="./PrtPagination.js"></script>
 <template>
   <div class="prt-pagination">
+    <!-- PAGINATION -->
+
+    <div class="grid gap-4 grid-cols-4">
+      <div v-if="currentPage === 1" :class="disabledStyle">
+        <span class="hidden sm:inline">First</span>
+        &gt;
+      </div>
+
+      <nuxt-link
+        v-else
+        :to="{ name: 'articles-page-page', params: { page: 1 } }"
+        :class="buttonStyles"
+      >
+        &gt; &gt;
+        <span class="hidden sm:inline">First</span>
+      </nuxt-link>
+
+      <div v-if="currentPage === 1" :class="disabledStyle">
+        <span class="hidden sm:inline">Prev</span>
+        &gt;
+      </div>
+
+      <nuxt-link
+        v-else
+        :to="{ name: 'articles-page-page', params: { page: prevPage } }"
+        :class="buttonStyles"
+      >
+        &gt;
+        <span class="hidden sm:inline">Prev</span>
+      </nuxt-link>
+
+      <div v-if="currentPage === totalPages" :class="disabledStyle">
+        <span class="hidden sm:inline">Next</span>
+        &lt;
+      </div>
+
+      <nuxt-link
+        v-else
+        :to="{ name: 'articles-page-page', params: { page: nextPage } }"
+        :class="buttonStyles"
+      >
+        <span class="hidden sm:inline">Next</span>
+        &lt;
+      </nuxt-link>
+
+      <div v-if="currentPage === totalPages" :class="disabledStyle">
+        <span class="hidden sm:inline">Last</span>
+        &lt; &lt;
+      </div>
+
+      <nuxt-link
+        v-else
+        :to="{ name: 'articles-page-page', params: { page: totalPages } }"
+        :class="buttonStyles"
+      >
+        <span class="hidden sm:inline">Last</span>
+        &lt; &lt;
+      </nuxt-link>
+    </div>
+    <!-- PAGINATION -->
     <nav
       class="relative z-0 inline-flex shadow-sm -space-x-px"
       aria-label="Pagination"

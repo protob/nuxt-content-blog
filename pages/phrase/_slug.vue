@@ -39,7 +39,7 @@ export default {
         'author',
       ])
 
-      .where({ tags: { $contains: params.slug } })
+      .where({ title: { $contains: params.slug } })
       .sortBy('createdAt', 'asc')
       .fetch()
 

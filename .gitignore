@@ -88,3 +88,8 @@ sw.*
 
 # Vim swap files
 *.swp
+content/articles/2019
+content/articles/2020
+content/articles/2021
+content/articles/images
+static/blog-images

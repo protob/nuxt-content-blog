@@ -8,13 +8,7 @@
 
 <script>
 export default {
-  async asyncData({
-    $content,
-    params,
-    error,
-    $taxonomyFormatter2,
-    $taxonomyFormatter,
-  }) {
+  async asyncData({ $content, params, error }) {
     const articles = await $content('articles', params, { deep: true })
       .only([
         'slug',
@@ -28,7 +22,7 @@ export default {
         'author',
       ])
 
-      .where({ categories: { $contains: params.slug } })
+      .where({ title: { $contains: params.slug } })
       .sortBy('createdAt', 'asc')
       .fetch()
 

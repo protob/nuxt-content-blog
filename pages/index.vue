@@ -1,25 +1,44 @@
 <template>
-  <div class="container mx-auto flex flex-row flex-wrap">
-    <div class="col w-3/4">
-      <PrtItemsListing />
-    </div>
-    <div class="col w-1/4">
-      <PrtSidebar />
-    </div>
-
-    <div class="col w-full"><PrtPagination /></div>
-  </div>
+  <PrtItemsListing :articles="paginatedArticles" :total="allArticles.length" />
 </template>
 <script>
+import getContent from '@/utils/getContent'
+
 export default {
-  async asyncData({ $content, params }) {
-    const articles = await $content('blog', params.slug)
-      .only(['title', 'description', 'img', 'slug', 'author'])
+  async asyncData({
+    $content,
+    params,
+    error,
+    $taxonomyFormatter2,
+    $taxonomyFormatter,
+  }) {
+    const content = await getContent($content, params, error)
+
+    const articles = await $content('articles', params, { deep: true })
+      .only([
+        'slug',
+        'title',
+        'date',
+        'excerpt',
+        'coverImage',
+        'image',
+        'categories',
+        'tags',
+        'author',
+      ])
       .sortBy('createdAt', 'asc')
       .fetch()
 
+    const tags = $taxonomyFormatter(articles)
+    const cats = $taxonomyFormatter2(articles)
+
     return {
+      tags,
+      cats,
       articles,
+
+      allArticles: content.allArticles,
+      paginatedArticles: content.paginatedArticles,
     }
   },
 }

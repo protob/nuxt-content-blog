@@ -1,25 +1,26 @@
 <template>
   <div>
-    <div class="flex justify-center">
+    <div class="container mx-auto">
       <h2
-        class="text-center text-3xl mb-4 uppercase bg-black text-white inline-block mx-auto px-2"
+        class="text-center text-sm mb-4 uppercase bg-indigo-900 text-white inline-block mx-auto px-4 py-4 my-4"
       >
         All Articles ({{ allArticles.length }})
       </h2>
     </div>
-    <ArticleList :articles="paginatedArticles" :total="allArticles.length" />
+
+    <PrtItemsListing
+      :articles="paginatedArticles"
+      :total="allArticles.length"
+    />
   </div>
 </template>
 
 <script>
 import getContent from '@/utils/getContent'
-import ArticleList from '@/components/ArticleList'
-
+import { mapGetters } from 'vuex'
 export default {
   name: 'ArticleListPage',
-  components: {
-    ArticleList,
-  },
+  components: {},
   async asyncData({ $content, app, params, error }) {
     const content = await getContent($content, params, error)
     return {
@@ -27,6 +28,23 @@ export default {
       paginatedArticles: content.paginatedArticles,
     }
   },
+  data() {
+    return {
+      tags: [],
+      cats: [],
+    }
+  },
+  mounted() {
+    this.tags = this.getTags()
+    this.cats = this.getCats()
+  },
+  methods: {
+    ...mapGetters({
+      getTags: 'getTags',
+      getCats: 'getCats',
+    }),
+  },
+
   head() {
     return {
       title: `Articles Page ${this.$route.params.page} - Learning Laravel and VueJS`,

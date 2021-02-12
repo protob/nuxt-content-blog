@@ -28,20 +28,16 @@
         </NuxtLink>
       </li>
     </ul>
-    <div v-if="total" class="constainer mx-auto my-5 max-w-5xl">
-      <Pagination v-if="total > 5" :total="total" />
+    <div v-if="total" class="constainer mx-auto my-5 max-w-5xl pr-8">
+      <PrtPagination v-if="total > 5" :total="total" />
     </div>
   </div>
 </template>
 
 <script>
-import Pagination from '@/components/Pagination'
-
 export default {
   name: 'ArticleList',
-  components: {
-    Pagination,
-  },
+  components: {},
   props: {
     articles: {
       type: Array,

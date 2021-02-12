@@ -1,11 +1,11 @@
 <script src="./PrtTaxonomyListing.js"></script>
 <template>
-  <div class="prt-taxonomy-listing">
+  <div class="prt-taxonomy-listing flex align-start flex-wrap">
     <PrtTaxonomyItem
       v-for="(item, index) in items"
       :key="index"
       :item="item"
-      :taxonomyType="taxonomyType"
+      :taxonomy-type="taxonomyType"
     />
   </div>
 </template>

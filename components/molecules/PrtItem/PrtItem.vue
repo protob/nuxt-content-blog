@@ -1,33 +1,51 @@
 <script src="./PrtItem.js"></script>
 <template>
   <div class="prt-item mb-4">
-    <div class="max-w-xs rounded overflow-hidden shadow-lg my-2">
-      <img
-        class="w-full"
-        src="https://tailwindcss.com/img/card-top.jpg"
-        alt="Sunset in the mountains"
-      />
+    <div class="max-w-xs rounded overflow-hidden shadow-lg mb-2 mt-4">
+      <NuxtLink
+        :to="`/articles/${article.slug}`"
+        class="flex transition-shadow duration-150 ease-in-out shadow-sm hover:shadow-md xxlmax:flex-col"
+      >
+        <img
+          v-if="article.image"
+          class="w-full"
+          :src="'/blog-images/' + article.image"
+        />
+      </NuxtLink>
       <div class="px-6 py-4">
-        <div class="font-bold text-xl mb-2">The Coldest Sunset</div>
-        <p class="text-grey-darker text-base">
-          {{ lorem() }}
-        </p>
+        <!-- :to="{ name: 'blog-slug', params: { slug: article.slug } }" -->
+        <NuxtLink
+          :to="`/articles/${article.slug}`"
+          class="flex xxlmax:flex-col border-0"
+        >
+          <div class="font-bold text-xl mb-2">
+            {{ article.title }}
+          </div></NuxtLink
+        >
+
+        <p>date: {{ article.date }}</p>
       </div>
-      <div class="px-6 py-4">
-        <span
-          class="inline-block bg-grey-lighter rounded-full px-3 py-1 text-sm font-semibold text-grey-darker mr-2"
-          >#photography</span
-        >
-        <span
-          class="inline-block bg-grey-lighter rounded-full px-3 py-1 text-sm font-semibold text-grey-darker mr-2"
-          >#travel</span
-        >
-        <span
-          class="inline-block bg-grey-lighter rounded-full px-3 py-1 text-sm font-semibold text-grey-darker"
-          >#winter</span
-        >
+
+      <div v-if="article.categories" class="px-6">
+        <nuxt-link
+          v-for="cat in categories"
+          :key="cat"
+          :to="'/cat/' + cat"
+          class="inline-block font-bold mr-2 border py-1 px-2 rounded bg-gray-100"
+          >{{ cat }}
+        </nuxt-link>
+      </div>
+
+      <div v-if="article.tags" class="px-6 py-4">
+        <nuxt-link
+          v-for="tag in tags"
+          :key="tag"
+          :to="'/tag/' + tag"
+          class="inline-block font-bold mr-2"
+          >#{{ tag }}
+        </nuxt-link>
       </div>
     </div>
   </div>
 </template>
-<style lang="scss"></style>
+<style scoped></style>

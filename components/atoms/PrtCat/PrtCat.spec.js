@@ -1,10 +1,9 @@
-import { shallowMount } from "@vue/test-utils";
-import PrtCat from "./PrtCat.vue";
+import { shallowMount } from '@vue/test-utils'
+import PrtCat from './PrtCat.vue'
 
-describe("PrtCat.vue", () => {
-  it("renders a component", () => {
-    const component = shallowMount(PrtCat);
-    expect(component.contains(".prt-cat")).toBe(true);
-  });
-});
-
+describe('PrtCat.vue', () => {
+  it('renders a component', () => {
+    const component = shallowMount(PrtCat)
+    expect(component.contains('.prt-cat')).toBe(true)
+  })
+})

@@ -1,23 +1,12 @@
 <template>
-  <div class="container mx-auto flex flex-row flex-wrap">
-    <div class="col w-3/4">
-      <!-- <PrtItemsListing
-        :articles="paginatedArticles"
-        :total="allArticles.length"
-      /> -->
-
-      <PrtItemsListing :articles="articles" :total="articles.length" />
-    </div>
-    <div class="col w-1/4">
-      <PrtSidebar :cats="cats" :tags="tags" />
-    </div>
-
-    <div class="col w-full"><PrtPagination /></div>
-  </div>
+  <PrtItemsListing
+    :articles="articles"
+    :total="articles.length"
+    :hide-pagination="true"
+  />
 </template>
 
 <script>
-// import getContent from '@/utils/getContent'
 export default {
   async asyncData({
     $content,
@@ -45,18 +34,7 @@ export default {
 
     return {
       articles,
-
-      // allArticles: content.allArticles,
-      // paginatedArticles: content.paginatedArticles,
     }
   },
 }
-// export default {
-//   async asyncData({ params, error, $content }) {
-//     const articles = await $content('articles', params, { deep: true })
-//       .where({ tags: { $contains: params.slug } })
-//       .fetch()
-//     return { articles }
-//   },
-// }
 </script>

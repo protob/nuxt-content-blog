@@ -13,10 +13,10 @@ export default {
   },
   computed: {
     buttonStyles() {
-      return 'mx-2 border rounded px-4 py-1 text-sm bg-white flex justify-center items-center sm:uppercase hover:bg-indigo-900 hover:text-white transform duration-500 ease-in-out'
+      return 'border rounded px-4 py-1 text-sm bg-white flex justify-center items-center sm:uppercase hover:bg-blue-500 hover:text-white transform duration-500 ease-in-out'
     },
     disabledStyle() {
-      return 'mx-2 border rounded px-4 py-1 text-sm bg-white flex justify-center items-center sm:uppercase text-gray-300'
+      return 'border rounded px-4 py-1 text-sm bg-white flex justify-center items-center sm:uppercase text-gray-300'
     },
     totalPages() {
       return Math.ceil(this.total / this.perPage)
